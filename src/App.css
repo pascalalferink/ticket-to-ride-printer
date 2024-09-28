@@ -1,38 +1,317 @@
+*{
+  box-sizing: border-box;
+}
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 1rem;
+  font-size: 24px;
+}
+.App .row {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  padding: .5rem;
+  border: 1px solid black;
+  gap:1rem;
+
+}
+.App .row span:last-child {
+  margin-left: auto;
+}
+img {max-width: 100%;}
+
+.App .row span:last-child {
+  flex: 0 0 0;
+  
+}
+.markericon {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  background-color: #000;
+  border: 2px solid #fff;
+  outline: 2px solid #000;
+}
+.map {
+  position: relative;
+}
+.mapcontainer {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+}
+.marker {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+}
+.marker::before,
+.marker::after {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background-color: #000;
+  border: 2px solid #fff;
+  outline: 2px solid #000;
+  width: 10px;
+  height: 10px;
+  display: block;
+  content:""
+}
+.row:nth-child(1) .markericon,
+.marker:first-child:before,
+.marker:first-child::after {
+  rotate: 45deg;
+  transform-origin: 0 0;
+}
+.row:nth-child(1) .markericon{
+  transform-origin: unset;
+}
+.row:nth-child(3) .markericon,
+.marker:nth-child(3):before,
+.marker:nth-child(3)::after {
+  border-radius: 50%;
 }
 
-.App-link {
-  color: #61dafb;
+[data-start="Amsterdam"]::before,
+[data-end="Amsterdam"]::after {
+  left: 35%;
+  top: 28%;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+[data-start="Angora"]::before,
+[data-end="Angora"]::after {
+  left: 89%;
+  top: 83%;
+}
+[data-start="Athína"]::before,
+[data-end="Athína"]::after {
+  left: 69%;
+  top: 84%;
+}
+[data-start="Barcelona"]::before,
+[data-end="Barcelona"]::after {
+  left: 24%;
+  top: 72%;
+}
+[data-start="Berlin"]::before,
+[data-end="Berlin"]::after {
+  left: 51%;
+  top: 32%;
+}
+[data-start="Brest"]::before,
+[data-end="Brest"]::after {
+  left: 17%;
+  top: 40%;
+}
+[data-start="Brindisi"]::before,
+[data-end="Brindisi"]::after {
+  left: 56%;
+  top: 75%;
+}
+[data-start="Bruxelles"]::before,
+[data-end="Bruxelles"]::after {
+  left: 35%;
+  top: 36%;
+}
+[data-start="Bucuresti"]::before,
+[data-end="Bucuresti"]::after {
+  left: 77%;
+  top: 57%;
+}
+[data-start="Budapest"]::before,
+[data-end="Budapest"]::after {
+  left: 58%;
+  top: 50%;
+}
+[data-start="Cádiz"]::before,
+[data-end="Cádiz"]::after {
+  left: 10%;
+  top: 85%;
+}
+[data-start="Constantinople"]::before,
+[data-end="Constantinople"]::after {
+  left: 80%;
+  top: 72%;
+}
+[data-start="Danzig"]::before,
+[data-end="Danzig"]::after {
+  left: 56%;
+  top: 23%;
+}
+[data-start="Dieppe"]::before,
+[data-end="Dieppe"]::after {
+  left: 25%;
+  top: 39%;
+}
+[data-start="Edinburgh"]::before,
+[data-end="Edinburgh"]::after {
+  left: 27%;
+  top: 12%;
+}
+[data-start="Erzurum"]::before,
+[data-end="Erzurum"]::after {
+  left: 93%;
+  top: 72%;
+}
+[data-start="Essen"]::before,
+[data-end="Essen"]::after {
+  left: 43%;
+  top: 32%;
+}
+[data-start="Frankfurt"]::before,
+[data-end="Frankfurt"]::after {
+  left: 41%;
+  top: 40%;
+}
+[data-start="Kharkov"]::before,
+[data-end="Kharkov"]::after {
+  left: 94%;
+  top: 39%;
+}
+[data-start="Kyïv"]::before,
+[data-end="Kyïv"]::after {
+  left: 79%;
+  top: 37%;
+}
+[data-start="København"]::before,
+[data-end="København"]::after {
+  left: 48%;
+  top: 19%;
+}
+[data-start="Lisboa"]::before,
+[data-end="Lisboa"]::after {
+  left: 3%;
+  top: 70%;
+}
+[data-start="London"]::before,
+[data-end="London"]::after {
+  left: 26%;
+  top: 27%;
+}
+[data-start="Madrid"]::before,
+[data-end="Madrid"]::after {
+  left: 14%;
+  top: 70%;
+}
+[data-start="Marseille"]::before,
+[data-end="Marseille"]::after {
+  left: 32%;
+  top: 64%;
+}
+[data-start="Moskva"]::before,
+[data-end="Moskva"]::after {
+  left: 89%;
+  top: 20%;
+}
+[data-start="München"]::before,
+[data-end="München"]::after {
+  left: 45%;
+  top: 43%;
+}
+[data-start="Palermo"]::before,
+[data-end="Palermo"]::after {
+  left: 51%;
+  top: 87%;
+}
+[data-start="Pamplona"]::before,
+[data-end="Pamplona"]::after {
+  left: 18%;
+  top: 59%;
+}
+[data-start="Paris"]::before,
+[data-end="Paris"]::after {
+  left: 30%;
+  top: 46%;
+}
+[data-start="Petrograd"]::before,
+[data-end="Petrograd"]::after {
+  left: 81%;
+  top: 3%;
+}
+[data-start="Riga"]::before,
+[data-end="Riga"]::after {
+  left: 64%;
+  top: 6%;
+}
+[data-start="Roma"]::before,
+[data-end="Roma"]::after {
+  left: 45%;
+  top: 71%;
+}
+[data-start="Rostov"]::before,
+[data-end="Rostov"]::after {
+  left: 93%;
+  top: 51%;
+}
+[data-start="Sarajevo"]::before,
+[data-end="Sarajevo"]::after {
+  left: 59%;
+  top: 63%;
+}
+[data-start="Sevastopol"]::before,
+[data-end="Sevastopol"]::after {
+  left: 86%;
+  top: 56%;
+}
+[data-start="Smolensk"]::before,
+[data-end="Smolensk"]::after {
+  left: 84%;
+  top: 52%;
+}
+[data-start="Smyrna"]::before,
+[data-end="Smyrna"]::after {
+  left: 79%;
+  top: 86%;
+}
+[data-start="Sochi"]::before,
+[data-end="Sochi"]::after {
+  left: 93%;
+  top: 57%;
+}
+[data-start="Sofia"]::before,
+[data-end="Sofia"]::after {
+  left: 69%;
+  top: 65%;
+}
+[data-start="Stockholm"]::before,
+[data-end="Stockholm"]::after {
+  left: 56%;
+  top: 3%;
+}
+[data-start="Venezia"]::before,
+[data-end="Venezia"]::after {
+  left: 48%;
+  top: 58%;
+}
+[data-start="Warszawa"]::before,
+[data-end="Warszawa"]::after {
+  left: 62%;
+  top: 32%;
+}
+[data-start="Wien"]::before,
+[data-end="Wien"]::after {
+  left: 53%;
+  top: 49%;
+}
+[data-start="Wilno"]::before,
+[data-end="Wilno"]::after {
+  left: 70%;
+  top: 23%;
+}
+[data-start="Zágráb"]::before,
+[data-end="Zágráb"]::after {
+  left: 55%;
+  top: 59%;
+}
+[data-start="Zürich"]::before,
+[data-end="Zürich"]::after {
+  left: 40%;
+  top: 51%;
 }

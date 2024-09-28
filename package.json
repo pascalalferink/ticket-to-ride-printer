@@ -1,5 +1,6 @@
 {
-  "name": "2024",
+  "name": "ticket-to-ride-random-tickets",
+  "homepage":"./",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
